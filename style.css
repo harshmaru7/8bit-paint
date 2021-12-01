@@ -1,0 +1,22 @@
+.body{
+    display: flex;
+    flex-direction: row;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:5px;
+    width : 740px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+}
+.boxs{
+    background-color: aqua;
+    height: 40px;
+    width: 40px;
+}
+
+.clicked{
+    background-color: black;
+}
