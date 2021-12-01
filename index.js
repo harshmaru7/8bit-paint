@@ -1,11 +1,6 @@
-
-
 function changeColor(e){
     this.classList.add('clicked')
 }
-
-const boxs = document.querySelectorAll('.boxs')
-boxs.forEach(box=>box.addEventListener('mouseover',changeColor))
 
 const b = document.querySelector('.buttonz')
 const button = document.createElement('button')
@@ -50,9 +45,11 @@ function createGrid(){
     const grid = document.createElement('div')
     grid.classList.add('boxs')
     container.appendChild(grid)
+    const boxs = document.querySelectorAll('.boxs')
+    boxs.forEach(box=>box.addEventListener('mouseover',changeColor))
 }
 }
 
+button.addEventListener("click",clearGrid)
 
-button.addEventListener("click",clearGrid(createGrid))
-
+buttonc.addEventListener("click",createGrid)
