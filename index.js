@@ -1,44 +1,58 @@
-const container = document.querySelector('.container')
 
-for(let i =0 ;i<16*16;i++){
-    const grid = document.createElement('div')
-    grid.classList.add('boxs')
-    container.appendChild(grid)
-}
 
 function changeColor(e){
     this.classList.add('clicked')
-    console.log(e.style)
-    
 }
 
 const boxs = document.querySelectorAll('.boxs')
 boxs.forEach(box=>box.addEventListener('mouseover',changeColor))
 
-const b = document.querySelector('.body')
+const b = document.querySelector('.buttonz')
 const button = document.createElement('button')
 button.classList.add('clear')
 button.textContent="Clear Grid"
-button.style.color="blue"
+button.style.color="white"
 button.style.width='400px';
 button.style.height='100px';
-button.style.background='pink';
+button.style.background='black';
+button.style.fontFamily="Times New Roman";
+button.style.fontSize="42px";
 b.appendChild(button)
 
-function createGrid(){
-    window.prompt("Enter the grid size: ")
-}
+const buttonc = document.createElement('button');
+buttonc.classList.add('create');
+buttonc.textContent = "Create Grid";
+buttonc.style.color="white"
+buttonc.style.width='400px';
+buttonc.style.height='100px';
+buttonc.style.background='black';
+buttonc.style.fontFamily="Times New Roman";
+buttonc.style.fontSize="42px";
+b.appendChild(buttonc)
 
-function clearGrid(e,createGrid){
+function clearGrid(callback){
     const parent = document.querySelector('.container')
     while(parent.firstChild){
         parent.removeChild(parent.firstChild)
-    }
-
-    
+    }   
+    callback()
 }
 
 
+function createGrid(){
+    let n = window.prompt("Enter the size of the grid : ")
+    if(n>100){
+        n = window.prompt("Enter size less than 100 !")
+    }
+    const container = document.querySelector('.container')
 
-button.addEventListener("click",clearGrid)
+    for(let i =0 ;i<n*n;i++){
+    const grid = document.createElement('div')
+    grid.classList.add('boxs')
+    container.appendChild(grid)
+}
+}
+
+
+button.addEventListener("click",clearGrid(createGrid))
 
